@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="เว็บไซต์ร้านหนังสือสไตล์ภาพประกอบ พร้อมใช้งานบน GitHub Pages" />
+  <title>เว็บไซต์ตัวอย่าง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  #websiteHeroOverlay {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #websiteHeroOverlay.website-hero-ready {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+</style>
+<link rel="stylesheet" href="style.css?v=20260722-2" />
+  <link rel="stylesheet" href="learning-source-box.css?v=20260720-1" />
+  <link rel="stylesheet" href="activity-box.css?v=20260724-1" />
+  <link rel="stylesheet" href="boss-box.css?v=20260723-2" />
+  <link rel="stylesheet" href="bus-box.css?v=20260723-1" />
+  <link rel="stylesheet" href="classroom-box.css?v=20260720-2" />
+  <link rel="stylesheet" href="profile-box.css?v=20260721-2" />
+<link rel="stylesheet" href="student-box.css?v=20260724-1" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="website-data-loading">
+  <div class="announcement">
+    <div class="container announcement-inner">
+      <a class="brand brand-light" href="#home" aria-label="Book Store home">
+        <span class="brand-icon" data-website-brand-icon></span>
+        <span data-website-brand-name>book store</span>
+      </a>
+      <p>"ห้องสมุดแหล่งความรู้ คือคู่การศึกษา หนังสือมีคุณค่า ดั่งตำราที่เราเรียน"</p>
+    </div>
+  </div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a class="brand" href="#home" aria-label="หน้าหลัก">
+      <span class="brand-icon" data-website-brand-icon></span>
+      <span data-website-brand-name></span>
+    </a>
+
+    <nav class="main-nav" aria-label="เมนูหลัก">
+      <a href="#newsSlider">ข่าวสาร</a>
+      <a href="#learningSourceBox">แหล่งเรียนรู้</a>
+      <a href="#classroomBox">สื่อวิดีโอการเรียนรู้ตลอดชีวิต</a>
+<a href="#learningBaseModule">กิจกรรม</a>
+    </nav>
+
+    <div class="nav-profile-actions">
+
+<button
+  id="profileCartBtn"
+  class="profile-cart-btn"
+  type="button">
+
+  <span class="cart-icon">🛒</span>
+
+  <span id="profileCartCount">0</span> รายการ
+
+</button>
+
+      <div
+        id="mobileProfileNav"
+        class="mobile-profile-nav"
+        aria-label="ข้อมูลสมาชิก">
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+  <main>
+    <section id="home" class="hero">
+      <div id="websiteHeroOverlay" class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="eyebrow">อ่าน • เรียนรู้ • สร้างแรงบันดาลใจ</div>
+        <h1><span id="heroTitleLine1"></span><br><span id="heroTitleLine2"></span></h1>
+        <p>ค้นพบหนังสือ ภาพประกอบ และเรื่องราวที่ช่วยเปิดมุมมองใหม่ในทุกวัน</p>
+
+      </div>
+      <div class="floating-dot dot-1"></div>
+      <div class="floating-dot dot-2"></div>
+      <div class="floating-dot dot-3"></div>
+    </section>
+
+<!-- รถโมบาย + ข่าวสาร: แสดงแนวเดียวกัน -->
+<section id="news" class="news-section">
+  <div class="container">
+    <div id="newsBusLayout" class="news-bus-layout bus-is-hidden">
+
+      <div id="leftInfoStack" class="left-info-stack">
+        <aside id="bossBox" class="boss-box" hidden aria-live="polite">
+          <div class="boss-photo-wrap">
+            <img id="bossPhoto" class="boss-photo" src="" alt="รูปผู้บริหาร">
+          </div>
+          <div class="boss-text">
+            <div id="bossName" class="boss-name"></div>
+            <div id="bossPosition" class="boss-position"></div>
+          </div>
+        </aside>
+<!-- Team Box -->
+<article class="team-link-card">
+  <a href="team.html"
+     class="team-link-card-link"
+     aria-label="เปิดหน้าทำเนียบบุคลากร">
+
+    <div class="team-link-image">
+      <img
+        src="https://static.wixstatic.com/media/a503e5_c66a13b690264d99aad6ba41509785ba~mv2.png"
+        alt="บุคลากร"
+        loading="lazy">
+    </div>
+
+    <div class="team-link-title">
+      บุคลากร
+    </div>
+
+  </a>
+</article>
+      </div>
+
+      <div class="news-column">
+        <div class="section-heading">
+          <div>
+            <h2>ข่าวสาร</h2>
+          </div>
+        </div>
+
+        <div id="newsSlider" class="news-slider">
+          <div id="newsSlides" class="news-slides">
+            <div class="news-loading">กำลังโหลดข่าวสาร...</div>
+          </div>
+          <button id="newsPrev" class="news-arrow news-prev" type="button" aria-label="ข่าวก่อนหน้า">‹</button>
+          <button id="newsNext" class="news-arrow news-next" type="button" aria-label="ข่าวถัดไป">›</button>
+          <div id="newsDots" class="news-dots"></div>
+        </div>
+      </div>
+<div id="rightInfoStack" class="right-info-stack">
+      <aside id="profileBox" class="profile-box" aria-live="polite">
+         <button
+      id="profilePopupClose"
+      class="profile-popup-close"
+      type="button"
+      aria-label="ปิดข้อมูลสมาชิก"
+      hidden>
+      ×
+  </button>
+
+        <div class="profile-cover"></div>
+        <div class="profile-body">
+          <img
+            id="profilePhoto"
+            class="profile-photo"
+            src="https://static.wixstatic.com/media/a503e5_9064df4bf13044dab24382c889fa7d87~mv2.png"
+            alt="รูปผู้ใช้งาน">
+
+          <h3 id="profileName" class="profile-name">ยังไม่ได้เข้าสู่ระบบ</h3>
+          <p id="profileStatus" class="profile-status">สมาชิกเว็บไซต์ห้องสมุด</p>
+
+          <div class="profile-stats">
+            <div class="profile-stat">
+<strong id="profileHours">0</strong>
+<span id="profileHoursLabel"></span>
+            </div>
+          </div>
+
+          <div class="profile-action-row">
+            <button id="profileLoginBtn" class="profile-login-btn" type="button">Login</button>
+            <button id="profileLogoutBtn" class="profile-logout-btn" type="button" hidden>Logout</button>
+          </div>
+        </div>
+      </aside>
+<!-- Student Box -->
+<section id="studentBox" class="student-box">
+  <div class="student-box-icon">
+    <i class="fa-solid fa-user-graduate"></i>
+  </div>
+
+  <div class="student-box-content">
+    <h2>สำหรับนักศึกษา</h2>
+
+    <ul class="student-box-list">
+      <li>
+        <i class="fa-solid fa-user"></i>
+        <span>โปรไฟล์ของคุณ</span>
+      </li>
+
+      <li>
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <span>ห้องเรียนออนไลน์</span>
+      </li>
+
+      <li>
+        <i class="fa-solid fa-file-circle-check"></i>
+        <span>แบบทดสอบออนไลน์</span>
+      </li>
+    </ul>
+
+<a
+  href="https://brainboosthub.github.io/dole/ex.html"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="student-login-btn"
+>
+  <i class="fa-solid fa-right-to-bracket"></i>
+  เข้าสู่ระบบ
+</a>
+  </div>
+</section>
+  </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- แหล่งเรียนรู้ในพื้นที่: Box แยก ไม่กระทบระบบเดิม -->
+<section id="learningSourceBox" class="lsb-section">
+  <div class="container">
+    <div class="section-heading">
+    <div>
+        <div class="activity-box-kicker">
+            ★ แหล่งเรียนรู้ในพื้นที่
+        </div>
+  <h2>แหล่งเรียนรู้ผ่านแผนที่</h2>
+    </div>
+      <a id="lsbOpenAll"
+   class="lsb-open-all"
+   href="learning.html">
+  ดูรายการทั้งหมด
+</a>
+    </div>
+
+    <div class="lsb-box">
+      <div class="lsb-map-panel">
+        <div id="lsbMapStage" class="lsb-map-stage">
+          <div class="lsb-loading">กำลังโหลดแผนที่...</div>
+        </div>
+      </div>
+
+      <div class="lsb-slider-panel">
+        <button id="lsbPrev" class="lsb-arrow lsb-prev" type="button" aria-label="รายการก่อนหน้า">‹</button>
+        <div id="lsbViewport" class="lsb-viewport">
+          <div id="lsbTrack" class="lsb-track">
+            <div class="lsb-loading">กำลังโหลดรายการ...</div>
+          </div>
+        </div>
+        <button id="lsbNext" class="lsb-arrow lsb-next" type="button" aria-label="รายการถัดไป">›</button>
+        <div id="lsbDots" class="lsb-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ห้องเรียนออนไลน์: ใช้ระบบ Login เดียวกับ accountBtn -->
+
+<!-- Activity Box: ข้อมูลจากชีต activity -->
+<section id="activityBox" class="activity-box-section">
+  <div class="activity-box-container">
+<div class="activity-box-heading">
+
+    <div>
+        <div class="activity-box-kicker">
+            ★ ข่าวกิจกรรม
+        </div>
+
+        <h2>กิจกรรมล่าสุด</h2>
+    </div>
+
+<a class="activity-box-more-btn"
+   href="activity.html">
+  ดูกิจกรรมทั้งหมด
+</a>
+
+</div>
+
+    <div id="activityBoxStatus" class="activity-box-status">
+      กำลังโหลดกิจกรรม...
+    </div>
+
+    <div id="activityBoxGrid" class="activity-box-grid"></div>
+  </div>
+</section>
+
+<section id="classroomBox" class="classroom-section">
+  <div class="container">
+    <div class="section-heading classroom-heading">
+    <div>
+        <div class="activity-box-kicker">
+            ★ ห้องเรียนรู้ออนไลน์
+        </div>
+  <h2>สื่อการศึกษาตลอดชีวิต</h2>
+    </div>
+      <a
+        id="classroomOpenAll"
+        class="classroom-open-all"
+        href="#"
+        target="_blank"
+        rel="noopener">
+        ดูวิดีโอทั้งหมด
+      </a>
+    </div>
+
+    <div class="classroom-slider">
+
+      <button
+        id="classroomPrev"
+        class="classroom-arrow classroom-prev"
+        type="button">
+        ‹
+      </button>
+
+      <div class="classroom-viewport">
+        <div id="classroomTrack" class="classroom-track">
+          <div class="classroom-loading">
+            กำลังโหลดวิดีโอห้องเรียน...
+          </div>
+        </div>
+      </div>
+
+      <button
+        id="classroomNext"
+        class="classroom-arrow classroom-next"
+        type="button">
+        ›
+      </button>
+
+      <div id="classroomDots" class="classroom-dots"></div>
+
+    </div>
+  </div>
+</section>
+
+<section id="learningBaseModule"><div class="learning-container">
+
+  <div class="learning-tabs">
+<div style="display:flex;align-items:center;width:100%;gap:10px">
+
+  <div style="display:flex;gap:10px">
+    <button class="active"
+      onclick="LearningBase.showPage('activitiesPage',this)">
+      กิจกรรมทั้งหมด
+    </button>
+
+    <button
+      onclick="LearningBase.showPage('historyPage',this)">
+      กิจกรรมที่ยืนยันแล้ว
+    </button>
+  </div>
+
+  <div style="margin-left:auto">
+    <select
+      id="baseFilter"
+      onchange="LearningBase.filterActivities()"
+      style="width:260px"
+    >
+      <option value="">ทุกฐานการเรียนรู้</option>
+    </select>
+  </div>
+
+</div>
+    
+  </div>
+
+  <section id="activitiesPage">
+    <div class="learning-section-title">
+      <h2>เข้าร่วมกิจกรรม</h2>
+      <button onclick="LearningBase.loadActivities()">รีเฟรช</button>
+    </div>
+    <div id="activityGrid" class="learning-grid"></div>
+  </section>
+
+  <section id="historyPage" class="learning-hidden">
+    <div class="learning-section-title">
+      <h2>กิจกรรมที่ยืนยันแล้ว</h2>
+      <button onclick="LearningBase.loadHistory()">รีเฟรช</button>
+    </div>
+    <div id="historyList"></div>
+  </section>
+</div>
+</section>
+
+
+  </main>
+
+  <footer id="contact" class="footer">
+    <div class="container footer-inner">
+      <div><a class="brand brand-light" href="#home"><span class="brand-icon" data-website-brand-icon>B</span><span data-website-brand-name>book store</span></a><p>พื้นที่เล็ก ๆ สำหรับคนรักหนังสือและงานออกแบบ</p></div>
+      <div><h4>ติดต่อเรา</h4><p>hello@bookstore.example</p><p>โทร. 02-000-0000</p></div>
+      <div><h4>ติดตามข่าวสาร</h4><form class="subscribe-form"><input type="email" placeholder="อีเมลของคุณ" required><button>สมัคร</button></form></div>
+    </div>
+    <div class="copyright">© 2026 Book Store. All rights reserved.</div>
+  </footer>
+
+<script src="script.js?v=20260722-2"></script>
+  <script src="learning-source-box.js?v=20260720-1"></script>
+  <script src="activity-box.js?v=20260724-1"></script>
+  <script src="boss-box.js?v=20260723-2"></script>
+  <script src="bus-box.js?v=20260723-1"></script>
+  <script src="classroom-box.js?v=20260720-2"></script>
+
+<!-- Student Modal -->
+<div id="studentModal" class="learning-modal">
+  <div class="learning-modal-box">
+
+    <button
+      class="btn-red learning-modal-close"
+      type="button"
+      aria-label="ปิด"
+      onclick="LearningBase.closeModal('studentModal')">
+      ×
+    </button>
+
+    <!-- ส่วน Login -->
+    <div id="loginSection">
+      <h2>👤 Login</h2>
+
+      <label for="loginPhone">เบอร์โทร</label>
+      <input
+        id="loginPhone"
+        maxlength="10"
+        inputmode="numeric">
+
+      <div class="learning-login-actions">
+        <button
+          type="button"
+          onclick="LearningBase.studentLogin()">
+          Login
+        </button>
+
+        <button
+          id="newRegisterBtn"
+          class="btn-green"
+          type="button"
+          onclick="LearningBase.showRegisterBox()">
+          ลงทะเบียนผู้ใช้ใหม่
+        </button>
+      </div>
+    </div>
+
+    <!-- ส่วนลงทะเบียน -->
+    <div id="registerBox" style="display:none">
+      <h2>👤 ลงทะเบียนสมาชิก</h2>
+
+      <label for="stuFullname">
+        ชื่อ-นามสกุล
+      </label>
+
+      <input
+        id="stuFullname"
+        autocomplete="name">
+
+      <label for="stuPhone">
+        เบอร์โทร
+      </label>
+
+      <input
+        id="stuPhone"
+        maxlength="10"
+        inputmode="numeric"
+        autocomplete="tel">
+
+      <label for="stuAddress">
+        ที่อยู่
+      </label>
+
+      <textarea
+        id="stuAddress"
+        autocomplete="street-address">
+      </textarea>
+
+      <label for="stuPhoto">
+        แนบรูปภาพ
+      </label>
+
+      <input
+        id="stuPhoto"
+        class="learning-file-input"
+        type="file"
+        accept="image/jpeg,image/png,image/webp,image/gif">
+
+      <div class="learning-photo-help">
+        รองรับ JPG, PNG, WEBP หรือ GIF
+        ขนาดไม่เกิน 5 MB
+      </div>
+
+      <div
+        id="stuPhotoPreviewWrap"
+        class="learning-photo-preview-wrap"
+        hidden>
+
+        <img
+          id="stuPhotoPreview"
+          class="learning-photo-preview"
+          alt="ตัวอย่างรูปที่แนบ">
+
+        <button
+          type="button"
+          class="learning-photo-remove"
+          onclick="LearningBase.clearStudentPhoto()">
+          ลบรูป
+        </button>
+      </div>
+
+      <div class="learning-register-actions">
+        <button
+          class="btn-green"
+          type="button"
+          onclick="LearningBase.registerStudent()">
+          ลงทะเบียน
+        </button>
+      </div>
+    </div>
+
+    <!-- ส่วนหลังเข้าสู่ระบบ -->
+    <div
+      id="logoutBox"
+      style="margin-top:15px;display:none">
+
+      <div
+        style="
+          display:flex;
+          gap:8px;
+          flex-wrap:wrap;
+        ">
+
+        <button
+          class="btn-green"
+          type="button"
+          onclick="LearningBase.showRegisterBox()">
+          ลงทะเบียน
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- =====================================================
+     Popup แก้ไขโปรไฟล์
+     แยกจาก Popup ลงทะเบียนเดิมทั้งหมด
+====================================================== -->
+<div id="editProfileModal" class="learning-modal">
+  <div class="learning-modal-box edit-profile-modal-box">
+
+    <div class="edit-profile-header">
+
+      <h2 class="edit-profile-title">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        แก้ไขโปรไฟล์
+      </h2>
+
+      <button
+        class="learning-modal-close edit-profile-close"
+        type="button"
+        aria-label="ปิด"
+        onclick="LearningBase.closeEditProfile()">
+        ×
+      </button>
+
+    </div>
+    <div class="edit-profile-form">
+
+      <label for="editFullname">ชื่อ-นามสกุล</label>
+      <input
+        id="editFullname"
+        class="learning-input"
+        type="text"
+        autocomplete="name">
+
+      <label for="editPhone">เบอร์โทร</label>
+      <input
+        id="editPhone"
+        class="learning-input"
+        type="tel"
+        maxlength="10"
+        inputmode="numeric"
+        autocomplete="tel">
+
+      <label for="editAddress">ที่อยู่</label>
+      <textarea
+        id="editAddress"
+        class="learning-input"
+        rows="4"></textarea>
+
+      <label for="editPhoto">แนบรูปภาพ</label>
+
+      <div class="edit-profile-file-box">
+        <input
+          id="editPhoto"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/gif">
+      </div>
+
+      <small class="edit-profile-help">
+        รองรับ JPG, PNG, WEBP หรือ GIF ขนาดไม่เกิน 5 MB
+      </small>
+
+      <div class="edit-profile-actions">
+        <button
+          id="saveEditProfileBtn"
+          class="btn-green"
+          type="button"
+          onclick="LearningBase.saveEditProfile()">
+          บันทึก
+        </button>
+      </div>
+
+    </div>
+    <div
+      id="editPhotoPreviewWrap"
+      class="edit-profile-preview-wrap"
+      hidden>
+
+      <img
+        id="editPhotoPreview"
+        class="edit-profile-preview"
+        alt="ตัวอย่างรูปโปรไฟล์">
+
+      <button
+        class="btn-red edit-profile-remove-photo"
+        type="button"
+        onclick="LearningBase.removeEditProfilePhoto()">
+        ลบรูป
+      </button>
+    </div>
+
+
+  </div>
+</div>
+<!-- Cart Modal -->
+<div id="cartModal" class="learning-modal">
+  <div class="learning-modal-box">
+
+    <button
+      class="btn-red learning-modal-close"
+      type="button"
+      aria-label="ปิด"
+      onclick="LearningBase.closeModal('cartModal')">
+      ×
+    </button>
+
+    <h2>🛒 ตะกร้ากิจกรรมของคุณ</h2>
+
+    <div class="learning-modal-content">
+      <div id="cartList"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="detailModal" class="learning-modal">
+  <div class="learning-modal-box" style="max-width:900px">
+    <div id="detailContent"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:15px">
+      <button id="detailAddCartBtn"><i class="bi bi-bag-plus-fill"></i> ใส่ตะกร้า</button>
+     <button
+    class="detail-close-btn"
+    type="button"
+    aria-label="ปิด"
+    onclick="LearningBase.closeModal('detailModal')">
+    ×
+</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Popup รายละเอียดหนังสือ -->
+</div>
+
+  <script src="learning-base.js?v=20260720-3"></script>
+  <script src="profile-box.js?v=20260721-2"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const breakpoint = window.matchMedia(
+    '(max-width: 1024px)'
+  );
+
+  const mobileProfileNav =
+    document.getElementById('mobileProfileNav');
+
+  const profileBox =
+    document.getElementById('profileBox');
+
+  const profilePhoto =
+    document.getElementById('profilePhoto');
+
+  const profileHours =
+    document.getElementById('profileHours');
+
+  const profileHoursLabel =
+    document.getElementById('profileHoursLabel');
+
+  const popupClose =
+    document.getElementById('profilePopupClose');
+
+  if (!mobileProfileNav || !profileBox) {
+    return;
+  }
+
+  const profileOriginalParent =
+    profileBox.parentNode;
+
+  const profileOriginalNextSibling =
+    profileBox.nextSibling;
+
+  /* รูปโปรไฟล์บนเมนูมือถือ */
+  const mobilePhoto =
+    document.createElement('img');
+
+  mobilePhoto.id = 'mobileProfilePhoto';
+  mobilePhoto.className = 'mobile-profile-photo';
+  mobilePhoto.alt = 'เปิดข้อมูลสมาชิก';
+  mobilePhoto.tabIndex = 0;
+  mobilePhoto.setAttribute('role', 'button');
+  mobilePhoto.setAttribute(
+    'aria-label',
+    'เปิดข้อมูลสมาชิก'
+  );
+
+  /* Point บนเมนูมือถือ */
+  const mobilePoint =
+    document.createElement('div');
+
+  mobilePoint.id = 'mobileProfilePoint';
+  mobilePoint.className = 'mobile-profile-point';
+  mobilePoint.tabIndex = 0;
+  mobilePoint.setAttribute('role', 'button');
+  mobilePoint.setAttribute(
+    'aria-label',
+    'ดูรายการกิจกรรม'
+  );
+
+  const mobileHours =
+    document.createElement('strong');
+
+  mobileHours.id = 'mobileProfileHours';
+
+  const mobileHoursLabel =
+    document.createElement('span');
+
+  mobileHoursLabel.id =
+    'mobileProfileHoursLabel';
+
+  mobilePoint.append(
+    mobileHours,
+    mobileHoursLabel
+  );
+
+  mobileProfileNav.append(
+    mobilePoint,
+    mobilePhoto
+  );
+
+  /* Backdrop */
+  const backdrop =
+    document.createElement('div');
+
+  backdrop.id = 'profilePopupBackdrop';
+  backdrop.className =
+    'profile-popup-backdrop';
+
+  backdrop.hidden = true;
+  document.body.appendChild(backdrop);
+
+  function syncMobileProfile() {
+    if (profilePhoto) {
+      const photoUrl =
+        profilePhoto.currentSrc ||
+        profilePhoto.getAttribute('src') ||
+        profilePhoto.src ||
+        '';
+
+      if (photoUrl) {
+        mobilePhoto.src = photoUrl;
+        mobilePhoto.hidden = false;
+      } else {
+        mobilePhoto.removeAttribute('src');
+        mobilePhoto.hidden = true;
+      }
+    }
+
+    mobileHours.textContent =
+      profileHours?.textContent?.trim() ||
+      '0';
+
+    mobileHoursLabel.textContent =
+      profileHoursLabel
+        ?.textContent
+        ?.trim() ||
+      'Point';
+  }
+
+  function restoreProfilePosition() {
+    if (!profileOriginalParent) {
+      return;
+    }
+
+    if (
+      profileOriginalNextSibling &&
+      profileOriginalNextSibling.parentNode ===
+        profileOriginalParent
+    ) {
+      profileOriginalParent.insertBefore(
+        profileBox,
+        profileOriginalNextSibling
+      );
+    } else {
+      profileOriginalParent.appendChild(
+        profileBox
+      );
+    }
+  }
+
+  function openProfilePopup() {
+    if (!breakpoint.matches) {
+      return;
+    }
+
+    syncMobileProfile();
+
+    if (profileBox.parentNode !== document.body) {
+      document.body.appendChild(profileBox);
+    }
+
+    profileBox.hidden = false;
+    profileBox.removeAttribute('aria-hidden');
+
+    profileBox.classList.add(
+      'profile-box-popup-open'
+    );
+
+    backdrop.hidden = false;
+
+    if (popupClose) {
+      popupClose.hidden = false;
+    }
+
+    document.body.classList.add(
+      'profile-popup-lock'
+    );
+
+    popupClose?.focus();
+  }
+
+  function closeProfilePopup() {
+    profileBox.classList.remove(
+      'profile-box-popup-open'
+    );
+
+    backdrop.hidden = true;
+
+    if (popupClose) {
+      popupClose.hidden = true;
+    }
+
+    document.body.classList.remove(
+      'profile-popup-lock'
+    );
+
+    if (breakpoint.matches) {
+      profileBox.hidden = true;
+      profileBox.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+    } else {
+      profileBox.hidden = false;
+      profileBox.removeAttribute(
+        'aria-hidden'
+      );
+    }
+
+    restoreProfilePosition();
+  }
+
+  function updateProfileLocation(event) {
+    syncMobileProfile();
+
+    if (event.matches) {
+      /* Smartphone / Tablet */
+      mobileProfileNav.hidden = false;
+
+      profileBox.classList.remove(
+        'profile-box-popup-open'
+      );
+
+      profileBox.hidden = true;
+      profileBox.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+
+      backdrop.hidden = true;
+
+      if (popupClose) {
+        popupClose.hidden = true;
+      }
+
+      document.body.classList.remove(
+        'profile-popup-lock'
+      );
+
+      restoreProfilePosition();
+    } else {
+      /* Desktop */
+      mobileProfileNav.hidden = true;
+
+      profileBox.hidden = false;
+      profileBox.removeAttribute(
+        'aria-hidden'
+      );
+
+      profileBox.classList.remove(
+        'profile-box-popup-open'
+      );
+
+      backdrop.hidden = true;
+
+      if (popupClose) {
+        popupClose.hidden = true;
+      }
+
+      document.body.classList.remove(
+        'profile-popup-lock'
+      );
+
+      restoreProfilePosition();
+    }
+  }
+
+  /* กดรูป → เปิด Profile */
+  mobilePhoto.addEventListener(
+    'click',
+    function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      openProfilePopup();
+    }
+  );
+
+  mobilePhoto.addEventListener(
+    'keydown',
+    function (event) {
+      if (
+        event.key === 'Enter' ||
+        event.key === ' '
+      ) {
+        event.preventDefault();
+        openProfilePopup();
+      }
+    }
+  );
+
+  /* กด Point → เปิดรายการกิจกรรม */
+  mobilePoint.addEventListener(
+    'click',
+    function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (
+        window.LearningBase &&
+        typeof window.LearningBase
+          .openScoreModal === 'function'
+      ) {
+        window.LearningBase.openScoreModal();
+      }
+    }
+  );
+
+  mobilePoint.addEventListener(
+    'keydown',
+    function (event) {
+      if (
+        event.key === 'Enter' ||
+        event.key === ' '
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        window.LearningBase
+          ?.openScoreModal?.();
+      }
+    }
+  );
+
+  popupClose?.addEventListener(
+    'click',
+    closeProfilePopup
+  );
+
+  backdrop.addEventListener(
+    'click',
+    closeProfilePopup
+  );
+
+  document.addEventListener(
+    'keydown',
+    function (event) {
+      if (
+        event.key === 'Escape' &&
+        profileBox.classList.contains(
+          'profile-box-popup-open'
+        )
+      ) {
+        closeProfilePopup();
+      }
+    }
+  );
+
+  [
+    profilePhoto,
+    profileHours,
+    profileHoursLabel
+  ]
+    .filter(Boolean)
+    .forEach(function (element) {
+      new MutationObserver(
+        syncMobileProfile
+      ).observe(element, {
+        attributes: true,
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    });
+
+  profilePhoto?.addEventListener(
+    'load',
+    syncMobileProfile
+  );
+
+  window.addEventListener(
+    'LEARN_AUTH_CHANGED',
+    function () {
+      setTimeout(syncMobileProfile, 50);
+    }
+  );
+
+  syncMobileProfile();
+  updateProfileLocation(breakpoint);
+
+  if (
+    typeof breakpoint.addEventListener ===
+    'function'
+  ) {
+    breakpoint.addEventListener(
+      'change',
+      updateProfileLocation
+    );
+  } else {
+    breakpoint.addListener(
+      updateProfileLocation
+    );
+  }
+});
+</script>
+  
+
+<!-- เมนูด้านล่างสำหรับสมาร์ทโฟนและแท็บเล็ต -->
+<nav id="mobileBottomNav"
+     class="mobile-bottom-nav"
+     aria-label="เมนูด้านล่าง">
+
+  <a href="#home" class="mobile-bottom-link active">
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="#newsSlider" class="mobile-bottom-link">
+    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    <span>ข่าวสาร</span>
+  </a>
+
+  <a href="#learningSourceBox" class="mobile-bottom-link">
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <span>แหล่งเรียนรู้</span>
+  </a>
+
+  <a href="#classroomBox" class="mobile-bottom-link">
+    <i class="fa fa-play-circle" aria-hidden="true"></i>
+    <span>วิดีโอเอกสาร</span>
+  </a>
+<a href="#learningBaseModule" class="mobile-bottom-link">
+    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+    <span>กิจกรรม</span>
+  </a>
+
+</nav>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileLinks = Array.from(
+    document.querySelectorAll('.mobile-bottom-link')
+  );
+
+  const sectionIds = [
+    'home',
+    'newsSlider',
+    'learningSourceBox',
+    'classroomBox',
+'learningBaseModule'
+  ];
+
+  const setActiveMenu = function (targetId) {
+    mobileLinks.forEach(function (link) {
+      const href = link.getAttribute('href');
+      link.classList.toggle(
+        'active',
+        href === '#' + targetId
+      );
+    });
+  };
+
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      const targetId = link
+        .getAttribute('href')
+        .replace('#', '');
+
+      setActiveMenu(targetId);
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      const visibleEntries = entries
+        .filter(function (entry) {
+          return entry.isIntersecting;
+        })
+        .sort(function (a, b) {
+          return b.intersectionRatio - a.intersectionRatio;
+        });
+
+      if (visibleEntries.length) {
+        setActiveMenu(visibleEntries[0].target.id);
+      }
+    },
+    {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: [0.01, 0.1, 0.25]
+    }
+  );
+
+  sectionIds.forEach(function (id) {
+    const section = document.getElementById(id);
+
+    if (section) {
+      observer.observe(section);
+    }
+  });
+});
+</script>
+  <!-- Popup ประชาสัมพันธ์จากชีต boss -->
+  <div id="bossPopup" class="boss-popup" hidden aria-hidden="true">
+    <div class="boss-popup-dialog" role="dialog" aria-modal="true" aria-label="ประชาสัมพันธ์">
+      <button id="bossPopupClose" class="boss-popup-close" type="button" aria-label="ปิด">×</button>
+      <img id="bossPopupImage" class="boss-popup-image" src="" alt="ภาพประชาสัมพันธ์">
+      <div id="bossPopupActions" class="boss-popup-actions" hidden>
+        <a id="bossPopupDetail" class="boss-popup-detail" href="#" target="_blank" rel="noopener noreferrer">รายละเอียด</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

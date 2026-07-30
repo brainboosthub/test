@@ -317,3 +317,107 @@
     padding: 18px 15px;
   }
 }
+
+
+/* =========================================================
+   Layout ใหม่: กล่องทั้งหมดต่อใต้ newsSlides
+   ========================================================= */
+
+/* ยกเลิก Layout ด้านซ้าย/ด้านขวาเดิม โดยไม่แตะ JavaScript เดิม */
+#newsBusLayout.news-bus-layout {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#newsBusLayout .news-column {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* bossBox + studentBox + team-link-card อยู่แถวเดียวกันใต้ Slider */
+.news-info-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.news-info-row > .boss-box,
+.news-info-row > .student-box,
+.news-info-row > .team-link-card {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100%;
+  margin: 0 !important;
+  transform: none !important;
+  box-sizing: border-box;
+}
+
+.news-info-row > .boss-box[hidden] {
+  display: none !important;
+}
+
+.news-info-row > .student-box {
+  display: flex;
+  align-items: center;
+}
+
+.news-info-row > .team-link-card,
+.news-info-row > .team-link-card .team-link-card-link {
+  height: 100%;
+}
+
+/* Profile Box ยังคง ID/ระบบเดิม แต่ไม่ลอยอยู่ด้านข้าง */
+.profile-below-news {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.profile-below-news > .profile-box {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: min(100%, 360px) !important;
+  max-width: 360px !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* Notebook / Tablet */
+@media (max-width: 1000px) {
+  .news-info-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .news-info-row > .student-box {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 680px) {
+  .news-info-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .news-info-row > .student-box {
+    grid-column: auto;
+  }
+}

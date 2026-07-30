@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="boss-box.css?v=20260723-2" />
   <link rel="stylesheet" href="bus-box.css?v=20260723-1" />
   <link rel="stylesheet" href="classroom-box.css?v=20260720-2" />
-  <link rel="stylesheet" href="profile-box.css?v=20260721-2" />
+  <link rel="stylesheet" href="profile-box.css?v=20260731-1" />
 <link rel="stylesheet" href="student-box.css?v=20260724-2" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link
@@ -62,24 +62,35 @@
 <a href="#learningBaseModule">กิจกรรม</a>
     </nav>
 
-    <div class="nav-profile-actions">
+    <div class="nav-profile-actions" aria-label="ข้อมูลสมาชิก">
 
-<button
-  id="profileCartBtn"
-  class="profile-cart-btn"
-  type="button">
-
-  <span class="cart-icon">🛒</span>
-
-  <span id="profileCartCount">0</span> รายการ
-
-</button>
+      <button
+        id="profileCartBtn"
+        class="profile-cart-btn"
+        type="button"
+        aria-label="เปิดตะกร้ากิจกรรม">
+        <span class="cart-icon">🛒</span>
+        <span id="profileCartCount">0</span> รายการ
+      </button>
 
       <div
-        id="mobileProfileNav"
-        class="mobile-profile-nav"
-        aria-label="ข้อมูลสมาชิก">
+        id="mobileProfilePoint"
+        class="mobile-profile-point"
+        role="button"
+        tabindex="0"
+        aria-label="ดูรายการกิจกรรม">
+        <strong id="mobileProfileHours">0</strong>
+        <span id="mobileProfileHoursLabel">Point</span>
       </div>
+
+      <img
+        id="mobileProfilePhoto"
+        class="mobile-profile-photo"
+        src="https://static.wixstatic.com/media/a503e5_9064df4bf13044dab24382c889fa7d87~mv2.png"
+        alt="บัญชีผู้ใช้"
+        role="button"
+        tabindex="0"
+        aria-label="เปิดบัญชีผู้ใช้">
 
     </div>
 
@@ -167,43 +178,6 @@
           </article>
         </div>
 
-        <!-- คง Profile Box และระบบเดิมไว้ แต่ไม่วางเป็น Box ด้านข้าง -->
-        <div class="profile-below-news">
-<aside id="profileBox" class="profile-box" aria-live="polite">
-         <button
-      id="profilePopupClose"
-      class="profile-popup-close"
-      type="button"
-      aria-label="ปิดข้อมูลสมาชิก"
-      hidden>
-      ×
-  </button>
-
-        <div class="profile-cover"></div>
-        <div class="profile-body">
-          <img
-            id="profilePhoto"
-            class="profile-photo"
-            src="https://static.wixstatic.com/media/a503e5_9064df4bf13044dab24382c889fa7d87~mv2.png"
-            alt="รูปผู้ใช้งาน">
-
-          <h3 id="profileName" class="profile-name">ยังไม่ได้เข้าสู่ระบบ</h3>
-          <p id="profileStatus" class="profile-status">สมาชิกเว็บไซต์ห้องสมุด</p>
-
-          <div class="profile-stats">
-            <div class="profile-stat">
-<strong id="profileHours">0</strong>
-<span id="profileHoursLabel"></span>
-            </div>
-          </div>
-
-          <div class="profile-action-row">
-            <button id="profileLoginBtn" class="profile-login-btn" type="button">Login</button>
-            <button id="profileLogoutBtn" class="profile-logout-btn" type="button" hidden>Logout</button>
-          </div>
-        </div>
-      </aside>
-        </div>
       </div>
     </div>
   </div>
@@ -664,394 +638,8 @@
 </div>
 
   <script src="learning-base.js?v=20260720-3"></script>
-  <script src="profile-box.js?v=20260721-2"></script>
+  <script src="profile-box.js?v=20260731-1"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const breakpoint = window.matchMedia(
-    '(max-width: 1024px)'
-  );
-
-  const mobileProfileNav =
-    document.getElementById('mobileProfileNav');
-
-  const profileBox =
-    document.getElementById('profileBox');
-
-  const profilePhoto =
-    document.getElementById('profilePhoto');
-
-  const profileHours =
-    document.getElementById('profileHours');
-
-  const profileHoursLabel =
-    document.getElementById('profileHoursLabel');
-
-  const popupClose =
-    document.getElementById('profilePopupClose');
-
-  if (!mobileProfileNav || !profileBox) {
-    return;
-  }
-
-  const profileOriginalParent =
-    profileBox.parentNode;
-
-  const profileOriginalNextSibling =
-    profileBox.nextSibling;
-
-  /* รูปโปรไฟล์บนเมนูมือถือ */
-  const mobilePhoto =
-    document.createElement('img');
-
-  mobilePhoto.id = 'mobileProfilePhoto';
-  mobilePhoto.className = 'mobile-profile-photo';
-  mobilePhoto.alt = 'เปิดข้อมูลสมาชิก';
-  mobilePhoto.tabIndex = 0;
-  mobilePhoto.setAttribute('role', 'button');
-  mobilePhoto.setAttribute(
-    'aria-label',
-    'เปิดข้อมูลสมาชิก'
-  );
-
-  /* Point บนเมนูมือถือ */
-  const mobilePoint =
-    document.createElement('div');
-
-  mobilePoint.id = 'mobileProfilePoint';
-  mobilePoint.className = 'mobile-profile-point';
-  mobilePoint.tabIndex = 0;
-  mobilePoint.setAttribute('role', 'button');
-  mobilePoint.setAttribute(
-    'aria-label',
-    'ดูรายการกิจกรรม'
-  );
-
-  const mobileHours =
-    document.createElement('strong');
-
-  mobileHours.id = 'mobileProfileHours';
-
-  const mobileHoursLabel =
-    document.createElement('span');
-
-  mobileHoursLabel.id =
-    'mobileProfileHoursLabel';
-
-  mobilePoint.append(
-    mobileHours,
-    mobileHoursLabel
-  );
-
-  mobileProfileNav.append(
-    mobilePoint,
-    mobilePhoto
-  );
-
-  /* Backdrop */
-  const backdrop =
-    document.createElement('div');
-
-  backdrop.id = 'profilePopupBackdrop';
-  backdrop.className =
-    'profile-popup-backdrop';
-
-  backdrop.hidden = true;
-  document.body.appendChild(backdrop);
-
-  function syncMobileProfile() {
-    if (profilePhoto) {
-      const photoUrl =
-        profilePhoto.currentSrc ||
-        profilePhoto.getAttribute('src') ||
-        profilePhoto.src ||
-        '';
-
-      if (photoUrl) {
-        mobilePhoto.src = photoUrl;
-        mobilePhoto.hidden = false;
-      } else {
-        mobilePhoto.removeAttribute('src');
-        mobilePhoto.hidden = true;
-      }
-    }
-
-    mobileHours.textContent =
-      profileHours?.textContent?.trim() ||
-      '0';
-
-    mobileHoursLabel.textContent =
-      profileHoursLabel
-        ?.textContent
-        ?.trim() ||
-      'Point';
-  }
-
-  function restoreProfilePosition() {
-    if (!profileOriginalParent) {
-      return;
-    }
-
-    if (
-      profileOriginalNextSibling &&
-      profileOriginalNextSibling.parentNode ===
-        profileOriginalParent
-    ) {
-      profileOriginalParent.insertBefore(
-        profileBox,
-        profileOriginalNextSibling
-      );
-    } else {
-      profileOriginalParent.appendChild(
-        profileBox
-      );
-    }
-  }
-
-  function openProfilePopup() {
-    if (!breakpoint.matches) {
-      return;
-    }
-
-    syncMobileProfile();
-
-    if (profileBox.parentNode !== document.body) {
-      document.body.appendChild(profileBox);
-    }
-
-    profileBox.hidden = false;
-    profileBox.removeAttribute('aria-hidden');
-
-    profileBox.classList.add(
-      'profile-box-popup-open'
-    );
-
-    backdrop.hidden = false;
-
-    if (popupClose) {
-      popupClose.hidden = false;
-    }
-
-    document.body.classList.add(
-      'profile-popup-lock'
-    );
-
-    popupClose?.focus();
-  }
-
-  function closeProfilePopup() {
-    profileBox.classList.remove(
-      'profile-box-popup-open'
-    );
-
-    backdrop.hidden = true;
-
-    if (popupClose) {
-      popupClose.hidden = true;
-    }
-
-    document.body.classList.remove(
-      'profile-popup-lock'
-    );
-
-    if (breakpoint.matches) {
-      profileBox.hidden = true;
-      profileBox.setAttribute(
-        'aria-hidden',
-        'true'
-      );
-    } else {
-      profileBox.hidden = false;
-      profileBox.removeAttribute(
-        'aria-hidden'
-      );
-    }
-
-    restoreProfilePosition();
-  }
-
-  function updateProfileLocation(event) {
-    syncMobileProfile();
-
-    if (event.matches) {
-      /* Smartphone / Tablet */
-      mobileProfileNav.hidden = false;
-
-      profileBox.classList.remove(
-        'profile-box-popup-open'
-      );
-
-      profileBox.hidden = true;
-      profileBox.setAttribute(
-        'aria-hidden',
-        'true'
-      );
-
-      backdrop.hidden = true;
-
-      if (popupClose) {
-        popupClose.hidden = true;
-      }
-
-      document.body.classList.remove(
-        'profile-popup-lock'
-      );
-
-      restoreProfilePosition();
-    } else {
-      /* Desktop */
-      mobileProfileNav.hidden = true;
-
-      profileBox.hidden = false;
-      profileBox.removeAttribute(
-        'aria-hidden'
-      );
-
-      profileBox.classList.remove(
-        'profile-box-popup-open'
-      );
-
-      backdrop.hidden = true;
-
-      if (popupClose) {
-        popupClose.hidden = true;
-      }
-
-      document.body.classList.remove(
-        'profile-popup-lock'
-      );
-
-      restoreProfilePosition();
-    }
-  }
-
-  /* กดรูป → เปิด Profile */
-  mobilePhoto.addEventListener(
-    'click',
-    function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      openProfilePopup();
-    }
-  );
-
-  mobilePhoto.addEventListener(
-    'keydown',
-    function (event) {
-      if (
-        event.key === 'Enter' ||
-        event.key === ' '
-      ) {
-        event.preventDefault();
-        openProfilePopup();
-      }
-    }
-  );
-
-  /* กด Point → เปิดรายการกิจกรรม */
-  mobilePoint.addEventListener(
-    'click',
-    function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (
-        window.LearningBase &&
-        typeof window.LearningBase
-          .openScoreModal === 'function'
-      ) {
-        window.LearningBase.openScoreModal();
-      }
-    }
-  );
-
-  mobilePoint.addEventListener(
-    'keydown',
-    function (event) {
-      if (
-        event.key === 'Enter' ||
-        event.key === ' '
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        window.LearningBase
-          ?.openScoreModal?.();
-      }
-    }
-  );
-
-  popupClose?.addEventListener(
-    'click',
-    closeProfilePopup
-  );
-
-  backdrop.addEventListener(
-    'click',
-    closeProfilePopup
-  );
-
-  document.addEventListener(
-    'keydown',
-    function (event) {
-      if (
-        event.key === 'Escape' &&
-        profileBox.classList.contains(
-          'profile-box-popup-open'
-        )
-      ) {
-        closeProfilePopup();
-      }
-    }
-  );
-
-  [
-    profilePhoto,
-    profileHours,
-    profileHoursLabel
-  ]
-    .filter(Boolean)
-    .forEach(function (element) {
-      new MutationObserver(
-        syncMobileProfile
-      ).observe(element, {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true
-      });
-    });
-
-  profilePhoto?.addEventListener(
-    'load',
-    syncMobileProfile
-  );
-
-  window.addEventListener(
-    'LEARN_AUTH_CHANGED',
-    function () {
-      setTimeout(syncMobileProfile, 50);
-    }
-  );
-
-  syncMobileProfile();
-  updateProfileLocation(breakpoint);
-
-  if (
-    typeof breakpoint.addEventListener ===
-    'function'
-  ) {
-    breakpoint.addEventListener(
-      'change',
-      updateProfileLocation
-    );
-  } else {
-    breakpoint.addListener(
-      updateProfileLocation
-    );
-  }
-});
-</script>
   
 
 <!-- เมนูด้านล่างสำหรับสมาร์ทโฟนและแท็บเล็ต -->

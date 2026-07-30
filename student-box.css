@@ -177,49 +177,77 @@
   }
 }
 
-/* =========================================================
-   Student Box ต่อใต้ Profile Box ในคอลัมน์ด้านขวา
-   ========================================================= */
+/* =====================================================
+   Responsive three-column news layout
+   Keeps left and right cards fully inside the viewport.
+===================================================== */
 
-/* Desktop จอกว้าง: คอลัมน์ขวาลอยอยู่ข้างข่าวสาร */
-.right-info-stack {
-  position: absolute;
-  top: 108px;
-  right: -285px;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 255px;
-  max-width: 255px;
+.news-section > .container {
+  width: min(1680px, calc(100% - 32px));
+  max-width: none;
+  margin-inline: auto;
+}
+
+.news-bus-layout {
+  display: grid !important;
+  grid-template-columns:
+    minmax(180px, 255px)
+    minmax(0, 1fr)
+    minmax(180px, 255px) !important;
+  align-items: start;
+  gap: clamp(14px, 1.6vw, 30px);
+  width: 100%;
+  max-width: 100%;
+}
+
+.left-info-stack,
+.right-info-stack,
+.news-column {
   min-width: 0;
 }
 
-/* ยกเลิก position เดิมของ profileBox เพราะให้ตัวครอบเป็นผู้กำหนดตำแหน่งแทน */
-.right-info-stack > .profile-box {
-  position: relative !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  flex: 0 0 auto;
+.left-info-stack,
+.right-info-stack {
+  width: 100%;
+  max-width: 255px;
 }
 
-/* Student Box เป็นกล่องแนวตั้งขนาดเท่ากับ Profile Box */
-.right-info-stack > .student-box {
+.left-info-stack,
+.right-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-self: start;
+}
+
+.news-column,
+.news-slider,
+.news-slides {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.right-info-stack .profile-box,
+.right-info-stack .student-box,
+.left-info-stack .boss-box,
+.left-info-stack .team-link-card {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.right-info-stack .student-box {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 14px;
-  width: 100%;
-  max-width: none;
-  margin: 0;
   padding: 20px 16px;
   border-radius: 20px;
-  box-sizing: border-box;
-  flex: 0 0 auto;
 }
 
 .right-info-stack .student-box-icon {
@@ -236,13 +264,12 @@
 
 .right-info-stack .student-box-content {
   width: 100%;
-  min-width: 0;
   text-align: center;
 }
 
 .right-info-stack .student-box-content h2 {
   margin: 0 0 14px;
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .right-info-stack .student-box-list {
@@ -255,7 +282,6 @@
 
 .right-info-stack .student-box-list li {
   width: 100%;
-  min-width: 0;
   text-align: left;
   font-size: 14px;
 }
@@ -263,57 +289,69 @@
 .right-info-stack .student-login-btn {
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
 }
 
-/* Desktop / Notebook: rightInfoStack เป็นคอลัมน์ที่ 3 ของ Grid */
-@media (max-width: 1450px) {
+/* Narrow desktop / notebook */
+@media (max-width: 1350px) and (min-width: 1101px) {
+  .news-section > .container {
+    width: min(100% - 24px, 1320px);
+  }
+
   .news-bus-layout {
-    display: grid;
-    grid-template-columns: 255px minmax(0, 1fr) 255px;
-    align-items: start;
-    gap: 30px;
+    grid-template-columns:
+      minmax(170px, 215px)
+      minmax(0, 1fr)
+      minmax(170px, 215px) !important;
+    gap: 16px;
   }
 
+  .left-info-stack,
   .right-info-stack {
-    position: relative;
-    top: auto;
-    right: auto;
-    grid-column: 3;
-    display: flex;
-    width: 100%;
-    max-width: 255px;
-    margin: 0;
+    max-width: 215px;
   }
 }
 
-/* Tablet แนวนอน: ย้ายคอลัมน์ขวาลงด้านล่างและจัดกึ่งกลาง */
+/* Tablet and small notebook: news first, cards below */
 @media (max-width: 1100px) {
+  .news-section > .container {
+    width: min(100% - 24px, 1060px);
+  }
+
   .news-bus-layout {
-    grid-template-columns: 255px minmax(0, 1fr);
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .news-column {
+    order: 1;
+  }
+
+  .left-info-stack {
+    order: 2;
   }
 
   .right-info-stack {
-    grid-column: 1 / -1;
-    width: min(420px, 100%);
-    max-width: 420px;
-    margin: 0 auto;
-  }
-}
-
-/* Tablet / Mobile: เรียงทุกส่วนเป็นแนวตั้ง */
-@media (max-width: 900px) {
-  .right-info-stack {
-    position: relative;
     order: 3;
-    width: min(420px, 100%);
-    max-width: 420px;
-    margin: 0 auto;
+  }
+
+  .left-info-stack,
+  .right-info-stack {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: none;
+    gap: 16px;
   }
 }
 
-@media (max-width: 420px) {
-  .right-info-stack > .student-box {
-    padding: 18px 15px;
+@media (max-width: 640px) {
+  .news-section > .container {
+    width: min(100% - 20px, 100%);
+  }
+
+  .left-info-stack,
+  .right-info-stack {
+    grid-template-columns: 1fr;
   }
 }

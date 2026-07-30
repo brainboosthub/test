@@ -341,7 +341,7 @@
 /* bossBox + studentBox + team-link-card อยู่แถวเดียวกันใต้ Slider */
 .news-info-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
   gap: 22px;
   width: 100%;

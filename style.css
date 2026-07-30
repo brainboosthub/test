@@ -2033,3 +2033,107 @@ html.classroom-embed #appPage{
     font-size:26px;
   }
 }
+/* =====================================================
+   แก้หน้าเว็บล้นจอบน Mac / Notebook
+===================================================== */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: min(100% - 32px, 1440px);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Layout หลัก: ซ้าย - ข่าว - ขวา */
+.news-bus-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 255px)
+    minmax(0, 1fr)
+    minmax(180px, 255px);
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  align-items: start;
+}
+
+/* ป้องกันคอลัมน์กลางดัน Grid ล้น */
+.news-column,
+.news-slider,
+.news-slides {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* รูปข่าวไม่ดันหน้าเว็บ */
+.news-slider img,
+.news-slide img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* คอลัมน์ซ้ายและขวา */
+.left-info-stack,
+.right-info-stack {
+  width: 100%;
+  min-width: 0;
+  max-width: 255px;
+}
+
+.right-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* กล่องทั้งหมดต้องไม่กว้างเกินคอลัมน์ */
+.boss-box,
+.team-link-card,
+.profile-box,
+.student-box {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* MacBook / Notebook หน้าจอไม่กว้างมาก */
+@media (max-width: 1280px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .news-bus-layout {
+    grid-template-columns:
+      minmax(160px, 210px)
+      minmax(0, 1fr)
+      minmax(160px, 210px);
+    gap: 16px;
+  }
+
+  .left-info-stack,
+  .right-info-stack {
+    max-width: 210px;
+  }
+
+  .profile-box,
+  .student-box,
+  .boss-box,
+  .team-link-card {
+    max-width: 210px;
+  }
+}

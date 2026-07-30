@@ -104,38 +104,6 @@
 <section id="news" class="news-section">
   <div class="container">
     <div id="newsBusLayout" class="news-bus-layout bus-is-hidden">
-
-      <div id="leftInfoStack" class="left-info-stack">
-        <aside id="bossBox" class="boss-box" hidden aria-live="polite">
-          <div class="boss-photo-wrap">
-            <img id="bossPhoto" class="boss-photo" src="" alt="รูปผู้บริหาร">
-          </div>
-          <div class="boss-text">
-            <div id="bossName" class="boss-name"></div>
-            <div id="bossPosition" class="boss-position"></div>
-          </div>
-        </aside>
-<!-- Team Box -->
-<article class="team-link-card">
-  <a href="team.html"
-     class="team-link-card-link"
-     aria-label="เปิดหน้าทำเนียบบุคลากร">
-
-    <div class="team-link-image">
-      <img
-        src="https://static.wixstatic.com/media/a503e5_c66a13b690264d99aad6ba41509785ba~mv2.png"
-        alt="บุคลากร"
-        loading="lazy">
-    </div>
-
-    <div class="team-link-title">
-      บุคลากร
-    </div>
-
-  </a>
-</article>
-      </div>
-
       <div class="news-column">
         <div class="section-heading">
           <div>
@@ -151,9 +119,57 @@
           <button id="newsNext" class="news-arrow news-next" type="button" aria-label="ข่าวถัดไป">›</button>
           <div id="newsDots" class="news-dots"></div>
         </div>
-      </div>
-<div id="rightInfoStack" class="right-info-stack">
-      <aside id="profileBox" class="profile-box" aria-live="polite">
+
+        <!-- กล่องข้อมูลต่อใต้ข่าวสาร: อยู่ในแถวเดียวกัน -->
+        <div class="news-info-row">
+          <aside id="bossBox" class="boss-box" hidden aria-live="polite">
+            <div class="boss-photo-wrap">
+              <img id="bossPhoto" class="boss-photo" src="" alt="รูปผู้บริหาร">
+            </div>
+            <div class="boss-text">
+              <div id="bossName" class="boss-name"></div>
+              <div id="bossPosition" class="boss-position"></div>
+            </div>
+          </aside>
+
+          <section id="studentBox" class="student-box">
+            <div class="student-box-icon">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="student-box-content">
+              <h2>สำหรับนักศึกษา</h2>
+              <ul class="student-box-list">
+                <li><i class="fa-solid fa-user"></i><span>โปรไฟล์ของคุณ</span></li>
+                <li><i class="fa-solid fa-chalkboard-user"></i><span>ห้องเรียนออนไลน์</span></li>
+                <li><i class="fa-solid fa-file-circle-check"></i><span>แบบทดสอบออนไลน์</span></li>
+              </ul>
+              <a href="https://brainboosthub.github.io/dole/ex.html"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="student-login-btn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                เข้าสู่ระบบ
+              </a>
+            </div>
+          </section>
+
+          <article class="team-link-card">
+            <a href="team.html"
+               class="team-link-card-link"
+               aria-label="เปิดหน้าทำเนียบบุคลากร">
+              <div class="team-link-image">
+                <img src="https://static.wixstatic.com/media/a503e5_c66a13b690264d99aad6ba41509785ba~mv2.png"
+                     alt="บุคลากร"
+                     loading="lazy">
+              </div>
+              <div class="team-link-title">บุคลากร</div>
+            </a>
+          </article>
+        </div>
+
+        <!-- คง Profile Box และระบบเดิมไว้ แต่ไม่วางเป็น Box ด้านข้าง -->
+        <div class="profile-below-news">
+<aside id="profileBox" class="profile-box" aria-live="polite">
          <button
       id="profilePopupClose"
       class="profile-popup-close"
@@ -187,48 +203,11 @@
           </div>
         </div>
       </aside>
-<!-- Student Box -->
-<section id="studentBox" class="student-box">
-  <div class="student-box-icon">
-    <i class="fa-solid fa-user-graduate"></i>
-  </div>
-
-  <div class="student-box-content">
-    <h2>สำหรับนักศึกษา</h2>
-
-    <ul class="student-box-list">
-      <li>
-        <i class="fa-solid fa-user"></i>
-        <span>โปรไฟล์ของคุณ</span>
-      </li>
-
-      <li>
-        <i class="fa-solid fa-chalkboard-user"></i>
-        <span>ห้องเรียนออนไลน์</span>
-      </li>
-
-      <li>
-        <i class="fa-solid fa-file-circle-check"></i>
-        <span>แบบทดสอบออนไลน์</span>
-      </li>
-    </ul>
-
-<a
-  href="https://brainboosthub.github.io/dole/ex.html"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="student-login-btn"
->
-  <i class="fa-solid fa-right-to-bracket"></i>
-  เข้าสู่ระบบ
-</a>
-  </div>
-</section>
-  </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
 
 <!-- แหล่งเรียนรู้ในพื้นที่: Box แยก ไม่กระทบระบบเดิม -->
 <section id="learningSourceBox" class="lsb-section">
